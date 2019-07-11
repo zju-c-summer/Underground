@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>image/background.png</file>
+        <file>image/image1.jpg</file>
+        <file>image/image2.jpg</file>
+        <file>image/image3.jpg</file>
+        <file>image/exitbutton.png</file>
+        <file>image/exitbutton_hover.png</file>
+        <file>image/exitbutton_pressed.png</file>
+        <file>image/icon.png</file>
+        <file>image/playbutton.png</file>
+        <file>image/playbutton_hover.png</file>
+        <file>image/playbutton_pressed.png</file>
+        <file>image/loading.gif</file>
+        <file>image/title.png</file>
+        <file>image/wall.png</file>
+        <file>image/wall_dark.png</file>
+    </qresource>
+</RCC>

@@ -63,9 +63,9 @@ void game_control::paint(QPainter *painter,
                 else if()*/
                 //cout<<"colooo"<<endl;
                 switch (maze->get_block(i,j).get_type()) {
-                case 0:pix.load("D:/LEARNING/QT---PRogram/MAZE_01/wall.png");
+                case 0:pix.load(":/new/image/wall.png");
                     painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);break;
-                case 1:pix.load("D:/LEARNING/QT---PRogram/MAZE_01/wall_dark.png"); painter->setBrush(white);painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);break;
+                case 1:pix.load(":/new/image/wall_dark.png"); painter->setBrush(white);painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);break;
                 case 2: painter->setBrush(lime);painter->drawRect(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size());break;
                 case 3: painter->setBrush(Qt::red);painter->drawRect(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size());break;
                 }

@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-07-10T10:17:58
+# Project created by QtCreator 2019-07-08T15:33:21
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = MAZE_01
+TARGET = first
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,31 +25,40 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        Carousellmagewindow.cpp \
         block.cpp \
         game_control.cpp \
+        interface.cpp \
         main.cpp \
+        mainwindow.cpp \
         maze_model.cpp \
         player.cpp \
         prim.cpp \
         smallMap.cpp \
-        viewer.cpp \
-        widget.cpp
+        viewer.cpp
 
 HEADERS += \
+        Carousellmagewindow.h \
         block.h \
         common_value.h \
         game_control.h \
+        interface.h \
+        mainwindow.h \
         maze_model.h \
         player.h \
         prim.h \
         smallMap.h \
-        viewer.h \
-        widget.h
+        viewer.h
 
 FORMS += \
-        widget.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
+
+RC_FILE += ICON.rc
