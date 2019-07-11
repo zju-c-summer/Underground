@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-2J5OP0C</Machine>
+    <WindowsUser>覃捷</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|Win32</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>9a8273cc-fa20-4099-85ef-97d188ca25fc</PackageIdentityName>
+    <PackageIdentityPublisher>CN=覃捷</PackageIdentityPublisher>
+    <IntermediateOutputPath>D:\LEARNING\QT---PRogram\MAZE_01 - 副本\Win32\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>D:\LEARNING\QT---PRogram\MAZE_01 - 副本\debug\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\debug\MAZE_01.exe">
+      <PackagePath>MAZE_01.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\assets\logo_150x150.png">
+      <PackagePath>assets\logo_150x150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\assets\logo_44x44.png">
+      <PackagePath>assets\logo_44x44.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\assets\logo_store.png">
+      <PackagePath>assets\logo_store.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\assets\logo_620x300.png">
+      <PackagePath>assets\logo_620x300.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\Qt5Cored.dll">
+      <PackagePath>Qt5Cored.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\Qt5Guid.dll">
+      <PackagePath>Qt5Guid.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\Qt5Svgd.dll">
+      <PackagePath>Qt5Svgd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\Qt5Widgetsd.dll">
+      <PackagePath>Qt5Widgetsd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\libGLESV2d.dll">
+      <PackagePath>libGLESV2d.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\libEGLd.dll">
+      <PackagePath>libEGLd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\iconengines\qsvgicond.dll">
+      <PackagePath>iconengines\qsvgicond.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\imageformats\qgifd.dll">
+      <PackagePath>imageformats\qgifd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\imageformats\qicnsd.dll">
+      <PackagePath>imageformats\qicnsd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\imageformats\qicod.dll">
+      <PackagePath>imageformats\qicod.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\imageformats\qjpegd.dll">
+      <PackagePath>imageformats\qjpegd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\imageformats\qsvgd.dll">
+      <PackagePath>imageformats\qsvgd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\imageformats\qwbmpd.dll">
+      <PackagePath>imageformats\qwbmpd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\platforms\qwinrtd.dll">
+      <PackagePath>platforms\qwinrtd.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_ar.qm">
+      <PackagePath>translations\qt_ar.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_bg.qm">
+      <PackagePath>translations\qt_bg.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_ca.qm">
+      <PackagePath>translations\qt_ca.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_cs.qm">
+      <PackagePath>translations\qt_cs.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_da.qm">
+      <PackagePath>translations\qt_da.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_de.qm">
+      <PackagePath>translations\qt_de.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_en.qm">
+      <PackagePath>translations\qt_en.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_es.qm">
+      <PackagePath>translations\qt_es.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_fi.qm">
+      <PackagePath>translations\qt_fi.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_fr.qm">
+      <PackagePath>translations\qt_fr.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_gd.qm">
+      <PackagePath>translations\qt_gd.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_he.qm">
+      <PackagePath>translations\qt_he.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_hu.qm">
+      <PackagePath>translations\qt_hu.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_it.qm">
+      <PackagePath>translations\qt_it.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_ja.qm">
+      <PackagePath>translations\qt_ja.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_ko.qm">
+      <PackagePath>translations\qt_ko.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_lv.qm">
+      <PackagePath>translations\qt_lv.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_pl.qm">
+      <PackagePath>translations\qt_pl.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_ru.qm">
+      <PackagePath>translations\qt_ru.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_sk.qm">
+      <PackagePath>translations\qt_sk.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_uk.qm">
+      <PackagePath>translations\qt_uk.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\translations\qt_zh_TW.qm">
+      <PackagePath>translations\qt_zh_TW.qm</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.17763.0\\redist\Debug\x86\ucrtbased.dll">
+      <PackagePath>ucrtbased.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\LEARNING\QT---PRogram\MAZE_01 - 副本\debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27023.1</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27023.1</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27023.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27023.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
