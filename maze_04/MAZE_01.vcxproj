@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D13FE167-DEA7-3770-91C2-19FE10AC6A0E}</ProjectGuid>
+    <ProjectGuid>{09B2D60D-AF01-345C-89B3-AD7D133B0BA1}</ProjectGuid>
     <RootNamespace>MAZE_01</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
     <MinimumVisualStudioVersion>15.00</MinimumVisualStudioVersion>
@@ -43,7 +43,16 @@
     <PrimaryOutput>MAZE_01</PrimaryOutput>
     <EmbedManifest>false</EmbedManifest>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /><PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')"><QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild></PropertyGroup><Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')"><Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." /></Target><ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')"><Import Project="$(QtMsBuild)\qt.props" /></ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
@@ -54,13 +63,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MAZE_01</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MAZE_01</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
@@ -75,17 +84,18 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <ObjectFileName>release\</ObjectFileName>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
-      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
     <Link>
       <AdditionalDependencies>D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Widgets.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Gui.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Core.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\libEGL.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\libGLESv2.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\qtmain.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Core.lib;ucrt.lib;vcruntime.lib;windowscodecs.lib;WindowsApp.lib;runtimeobject.lib;OneCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -112,10 +122,27 @@
     <ResourceCompile>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
-  <QtMoc><QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR><OutputFile>$(Configuration)\moc_%(Filename).cpp</OutputFile><Define>UNICODE;$(Platform);QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB</Define><CompilerFlavor>msvc</CompilerFlavor><Include>D:/LEARNING/QT---PRogram/MAZE_01 - ?? (2)/$(Configuration)/moc_predefs.h</Include><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><InputFile>%(FullPath)</InputFile><DynamicSource>output</DynamicSource><IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;D:/QT/5.13.0/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017;D:/LEARNING/QT---PRogram/MAZE_01 - ?? (2);D:/QT/5.13.0/WINRT_X86_MSVC2017/include;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtWidgets;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtGui;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtANGLE;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtCore;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/ATLMFC/include;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.6.1/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/cppwinrt</IncludePath></QtMoc><QtUic><OutputFile>ui_widget.h</OutputFile><InputFile>%(FullPath)</InputFile><QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR><ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription></QtUic></ItemDefinitionGroup>
+    <QtMoc>
+      <QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR>
+      <OutputFile>$(Configuration)\moc_%(Filename).cpp</OutputFile>
+      <Define>UNICODE;$(Platform);QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB</Define>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <InputFile>%(FullPath)</InputFile>
+      <DynamicSource>output</DynamicSource>
+      <IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;D:/QT/5.13.0/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017;.;D:/QT/5.13.0/WINRT_X86_MSVC2017/include;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtWidgets;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtGui;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtANGLE;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtCore;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/ATLMFC/include;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.6.1/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/cppwinrt</IncludePath>
+    </QtMoc>
+    <QtUic>
+      <OutputFile>ui_widget.h</OutputFile>
+      <InputFile>%(FullPath)</InputFile>
+      <QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+    </QtUic>
+  </ItemDefinitionGroup>
   <Target Name="WinDeployQt_Release|Win32" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Inputs="$(OutDir)\$(TargetName).exe" Outputs="$(TargetName).windeployqt.$(Platform).$(Configuration)">
-    <Message Text="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;D:\LEARNING\QT---PRogram\MAZE_01 - ?? (2)&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
-    <Exec Command="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;D:\LEARNING\QT---PRogram\MAZE_01 - ?? (2)&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+    <Message Text="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir . -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+    <Exec Command="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir . -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
   </Target>
   <Target Name="PopulateWinDeployQtItems_Release|Win32" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" AfterTargets="Link" DependsOnTargets="WinDeployQt_Release|Win32">
     <ReadLinesFromFile File="$(TargetName).windeployqt.$(Platform).$(Configuration)">
@@ -137,7 +164,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <ObjectFileName>debug\</ObjectFileName>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -146,7 +173,9 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
     <Link>
       <AdditionalDependencies>D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Widgetsd.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Guid.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Cored.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\libEGLd.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\libGLESv2d.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\qtmaind.lib;D:\QT\5.13.0\WINRT_X86_MSVC2017\lib\Qt5Cored.lib;ucrtd.lib;vcruntimed.lib;windowscodecs.lib;WindowsApp.lib;runtimeobject.lib;OneCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -172,10 +201,27 @@
     <ResourceCompile>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
-  <QtUic><QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR><InputFile>%(FullPath)</InputFile><OutputFile>ui_widget.h</OutputFile><ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription></QtUic><QtMoc><QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR><OutputFile>$(Configuration)\moc_%(Filename).cpp</OutputFile><Define>UNICODE;$(Platform);QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB</Define><CompilerFlavor>msvc</CompilerFlavor><Include>D:/LEARNING/QT---PRogram/MAZE_01 - ?? (2)/$(Configuration)/moc_predefs.h</Include><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><InputFile>%(FullPath)</InputFile><DynamicSource>output</DynamicSource><IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;D:/QT/5.13.0/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017;D:/LEARNING/QT---PRogram/MAZE_01 - ?? (2);D:/QT/5.13.0/WINRT_X86_MSVC2017/include;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtWidgets;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtGui;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtANGLE;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtCore;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/ATLMFC/include;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.6.1/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/cppwinrt</IncludePath></QtMoc></ItemDefinitionGroup>
+    <QtUic>
+      <QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR>
+      <InputFile>%(FullPath)</InputFile>
+      <OutputFile>ui_widget.h</OutputFile>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+    </QtUic>
+    <QtMoc>
+      <QTDIR>D:\QT\5.13.0\WINRT_X86_MSVC2017</QTDIR>
+      <OutputFile>$(Configuration)\moc_%(Filename).cpp</OutputFile>
+      <Define>UNICODE;$(Platform);QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;_ENABLE_EXTENDED_ALIGNED_STORAGE;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB</Define>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <InputFile>%(FullPath)</InputFile>
+      <DynamicSource>output</DynamicSource>
+      <IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;D:/QT/5.13.0/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017;.;D:/QT/5.13.0/WINRT_X86_MSVC2017/include;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtWidgets;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtGui;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtANGLE;D:/QT/5.13.0/WINRT_X86_MSVC2017/include/QtCore;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/ATLMFC/include;C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.16.27023/include;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.6.1/include/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/ucrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/shared;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/um;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/winrt;C:/Program Files (x86)/Windows Kits/10/include/10.0.17763.0/cppwinrt</IncludePath>
+    </QtMoc>
+  </ItemDefinitionGroup>
   <Target Name="WinDeployQt_Debug|Win32" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Inputs="$(OutDir)\$(TargetName).exe" Outputs="$(TargetName).windeployqt.$(Platform).$(Configuration)">
-    <Message Text="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;D:\LEARNING\QT---PRogram\MAZE_01 - ?? (2)&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
-    <Exec Command="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;D:\LEARNING\QT---PRogram\MAZE_01 - ?? (2)&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+    <Message Text="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir . -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+    <Exec Command="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir . -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetFileName)&quot; &gt; &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
   </Target>
   <Target Name="PopulateWinDeployQtItems_Debug|Win32" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" AfterTargets="Link" DependsOnTargets="WinDeployQt_Debug|Win32">
     <ReadLinesFromFile File="$(TargetName).windeployqt.$(Platform).$(Configuration)">
@@ -206,34 +252,10 @@
     <ClInclude Include="player.h" />
     <ClInclude Include="prim.h" />
     <QtMoc Include="smallMap.h">
-      
-      
-      
-      
-      
-      
-      
-      
     </QtMoc>
     <QtMoc Include="viewer.h">
-      
-      
-      
-      
-      
-      
-      
-      
     </QtMoc>
     <QtMoc Include="widget.h">
-      
-      
-      
-      
-      
-      
-      
-      
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -253,25 +275,10 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\moc_predefs.h;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
-    
-    
-    
-    
-    
-    
     <ClInclude Include="ui_widget.h" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="widget.ui">
-      
-      
-      
-      
-      
-      
-      
-      
-      
     </QtUic>
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +300,14 @@
     <Image Include="assets/logo_store.png" />
     <Image Include="assets/logo_620x300.png" />
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')"><Import Project="$(QtMsBuild)\qt.targets" /></ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
   <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Qt5Version_x0020_Win32="winrt_x86_msvc2017" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

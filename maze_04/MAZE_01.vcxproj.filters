@@ -111,12 +111,6 @@
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
-    
-    
-    
-    
-    
-    
     <ClInclude Include="ui_widget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
@@ -157,5 +151,14 @@
     <None Include="D:\QT\5.13.0\WINRT_X86_MSVC2017\bin\libGLESv2d.dll">
       <Filter>Deployment Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets/logo_150x150.png" />
+    <Image Include="assets/logo_44x44.png" />
+    <Image Include="assets/logo_store.png" />
+    <Image Include="assets/logo_620x300.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
 </Project>

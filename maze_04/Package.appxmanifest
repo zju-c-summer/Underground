@@ -9,12 +9,12 @@
   IgnorableNamespaces="uap uap3 mp mobile">
 
   <Identity
-    Name="08d16b34-6f8a-4e22-9213-66c3d375e049"
+    Name="e4651625-1c6c-44b9-bb60-07368e27dc8b"
     Publisher="CN=覃捷"
     Version="1.0.0.0"
     ProcessorArchitecture="x86" />
 
-  <mp:PhoneIdentity PhoneProductId="08d16b34-6f8a-4e22-9213-66c3d375e049" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="e4651625-1c6c-44b9-bb60-07368e27dc8b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>MAZE_01</DisplayName>
