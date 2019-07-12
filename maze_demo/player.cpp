@@ -8,11 +8,11 @@ void player::set_y(double _y){y=_y;}
 double player::get_x(){return x;}
 double player::get_y(){return y;}
 void player::set_direction(int i){direction = i;}
-int player::get_direction(){return direction;}
+int player::get_direction(){return direction;}//0 左， 1右， 2上，3 下
 int player::get_size(){return size;}
-void player::moveR(){x+=step;}
-void player::moveL(){x-=step;}
-void player::moveU(){y-=step;}
-void player::moveD(){y+=step;}
+void player::moveR(){set_direction(1);x+=step;}
+void player::moveL(){set_direction(0);x-=step;}
+void player::moveU(){set_direction(2);y-=step;}
+void player::moveD(){set_direction(3);y+=step;}
 void player::set_step(double _step){step=_step;}
 double player::get_step(){return step;}

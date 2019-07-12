@@ -8,6 +8,7 @@ void game_control::playerGetExit(){
 }
 void game_control::keyPress(int i){
     maze->moveMan(i);
+    maze->moveMonster(rand()%4);
     if(judge()==1){//出口
         //maze->generateMaze();
         playerGetExit();
@@ -36,6 +37,7 @@ void game_control::paint(QPainter *painter,
 {
     Q_UNUSED(option);  //标明该参数没有使用
     Q_UNUSED(widget);
+
   //  setPos(-WINDOW_SIZE+100,-WINDOW_SIZE+100);
     int i=0,j;
   /* for(i=0;i<row_size;i++){//-600
@@ -52,23 +54,25 @@ void game_control::paint(QPainter *painter,
     QColor white(255,255,255);
     QColor lime(0,255,0);
     QPixmap pix;
-    painter->setBrush(black);
-    painter->drawRect(-(PAINT_BLOCK_NUMBER+2)*BLOCK_SIZE,-(PAINT_BLOCK_NUMBER+2)*BLOCK_SIZE,BLOCK_SIZE*(PAINT_BLOCK_NUMBER+2)*2,BLOCK_SIZE*(PAINT_BLOCK_NUMBER+2)*2);
+    painter->setBrush(Qt::black);
+    painter->drawRect(-WINDOW_SIZE/2,-WINDOW_SIZE/2,WINDOW_SIZE*1.2,WINDOW_SIZE*1.2);
+   // painter->setBrush(black);
+   // painter->drawRect(-(PAINT_BLOCK_NUMBER+2)*BLOCK_SIZE,-(PAINT_BLOCK_NUMBER+2)*BLOCK_SIZE,BLOCK_SIZE*(PAINT_BLOCK_NUMBER+2)*2,BLOCK_SIZE*(PAINT_BLOCK_NUMBER+2)*2);
 
-    for(int i=central_y-PAINT_BLOCK_NUMBER;i<central_y+PAINT_BLOCK_NUMBER;i++){
-        for(int j=central_x-PAINT_BLOCK_NUMBER;j<central_x+PAINT_BLOCK_NUMBER;j++){
+    for(int i=central_y-PAINT_BLOCK_NUMBER-1;i<central_y+PAINT_BLOCK_NUMBER+1;i++){
+        for(int j=central_x-PAINT_BLOCK_NUMBER-1;j<central_x+PAINT_BLOCK_NUMBER+1;j++){
             if(i>=0&&i<maze->get_col_size()&&j>=0&&j<maze->get_row_size()){
                /* if(maze->get_block(i,j).get_type()==0)
                 painter->setBrush(black);
                 else if()*/
                 //cout<<"colooo"<<endl;
                 switch (maze->get_block(i,j).get_type()) {
-                case 0:pix.load(":/new/image/wall.png");
-                    painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);break;
-                case 1:pix.load(":/new/image/wall_dark.png"); painter->setBrush(white);painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);break;
-                case 2: painter->setBrush(lime);painter->drawRect(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size());break;
-                case 3: painter->setBrush(Qt::red);painter->drawRect(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size());break;
+                case 0:pix.load(":/new/image/wall_1.png");break;
+                case 1:pix.load(":/new/image/wall_dark.png");break;
+                case 2: pix.load(":/new/image/exit_2.png");break;
+                case 3: pix.load(":/new/image/enter_2.png");break;
                 }
+                painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);
                 //painter->drawRect(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size());
                 //painter->drawPixmap(j*maze->get_block(i,j).get_block_size()-maze->get_man().get_x(),i*maze->get_block(i,j).get_block_size()-maze->get_man().get_y(),maze->get_block(i,j).get_block_size(),maze->get_block(i,j).get_block_size(),pix);
             }
@@ -78,14 +82,52 @@ void game_control::paint(QPainter *painter,
  //   painter->drawRect(man.get_x(),man.get_y(),man.get_size(),man.get_size());
     if((int)maze->get_monster().get_x()/BLOCK_SIZE>=(central_x-PAINT_BLOCK_NUMBER)&&(int)maze->get_monster().get_y()/BLOCK_SIZE>=(central_y-PAINT_BLOCK_NUMBER)&&
            (int) maze->get_monster().get_x()/BLOCK_SIZE<central_x+PAINT_BLOCK_NUMBER&&(int)maze->get_monster().get_y()/BLOCK_SIZE<central_y+PAINT_BLOCK_NUMBER){
-        QColor monster_color(0,100,0);
-        painter->setBrush(monster_color);//画怪物
-        painter->drawRect(maze->get_monster().get_x()-maze->get_man().get_x(),maze->get_monster().get_y()-maze->get_man().get_y(),maze->get_monster().get_size(),maze->get_monster().get_size());
+        switch (maze->get_monster().get_direction()) {
+        case 0:pix.load(":/new/image/monster_l.png");break;
+        case 1:pix.load(":/new/image/monster_r.png");break;
+        case 2:pix.load(":/new/image/monster_l.png");break;
+        case 3:pix.load(":/new/image/monster_r.png");break;
+
+        }
+        painter->drawPixmap(maze->get_monster().get_x()-maze->get_man().get_x(),maze->get_monster().get_y()-maze->get_man().get_y(),maze->get_monster().get_size(),maze->get_monster().get_size(),pix);
+     //   QColor monster_color(0,100,0);
+       // painter->setBrush(monster_color);//画怪物
+       // painter->drawRect(maze->get_monster().get_x()-maze->get_man().get_x(),maze->get_monster().get_y()-maze->get_man().get_y(),maze->get_monster().get_size(),maze->get_monster().get_size());
     }
-    QColor man_color(0,0,255);
-    painter->setBrush(man_color);//画玩家
-    painter->drawRect(0,0,maze->get_man().get_size(),maze->get_man().get_size());
+    //QColor man_color(0,0,255);
+   // painter->setBrush(man_color);//画玩家
+    switch(maze->get_man().get_direction()){
+    case 0:pix.load(":/new/image/man_left_1.png");break;
+    case 1:pix.load(":/new/image/man_right_1.png");break;
+    case 2:pix.load(":/new/image/man_up_1.png");break;
+    case 3:pix.load(":/new/image/man_down_1.png");break;
+    }
+    painter->drawPixmap(0,0,maze->get_man().get_size(),maze->get_man().get_size(),pix);
+   // painter->drawRect(0,0,maze->get_man().get_size(),maze->get_man().get_size());
  //   painter->drawRect(monster.get_x(),monster.get_y(),monster.get_size(),monster.get_size());
+    //圆环遮盖
+    QColor white_op(255,255,255,0);
+    QColor black_op(0,0,0,255);
+    QRadialGradient radialGradient(0,0,(PAINT_BLOCK_NUMBER+2)*BLOCK_SIZE*1.6,0,0);
+    radialGradient.setColorAt(0.4,white_op);
+    radialGradient.setColorAt(0.44,black_op);
+    radialGradient.setSpread(QGradient::PadSpread);
+    int radius = (PAINT_BLOCK_NUMBER+1)*BLOCK_SIZE*1.6;
+        painter->save();
+        painter->setPen(white_op);
+        painter->setBrush(QBrush(radialGradient));
+        //painter->setOpacity(0.5);
+        QPainterPath bigCircle;
+        bigCircle.addEllipse(-radius, -radius, radius * 2, radius * 2);
+
+        radius = PAINT_BLOCK_NUMBER*BLOCK_SIZE*0.6;
+        QPainterPath smallCircle;
+        smallCircle.addEllipse(-radius, -radius, radius * 2, radius * 2);
+
+        QPainterPath path = bigCircle - smallCircle;
+        painter->drawPath(path);
+
+        painter->restore();
 }
 int game_control::judge(){
     if((maze->get_maze())[maze->get_man().get_y()/BLOCK_SIZE][maze->get_man().get_x()/BLOCK_SIZE].get_type()==2){

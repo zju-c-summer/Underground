@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QDebug>
 #include <QButtonGroup>
-
+#include "common_value.h"
 CarouselImageWindow::CarouselImageWindow(QWidget *parent)
     : QWidget(parent)
     , m_currentDrawImageIndx(0)
@@ -24,7 +24,7 @@ CarouselImageWindow::CarouselImageWindow(QWidget *parent)
 
     connect(&m_imageChangeTimer, SIGNAL(timeout()), this, SLOT(onImageChangeTimeout()));
 
-    this->setFixedSize(QSize(960, 650));
+    this->setFixedSize(QSize(WINDOW_SIZE, WINDOW_SIZE));
 
     this->setWindowFlags(Qt::FramelessWindowHint);
 }

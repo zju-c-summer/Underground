@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     viewer_m(new viewer(scene, this)),
     map(viewer_m->get_control().get_maze(),this)
 {
+   // setStyleSheet("background-color:black;");
     ui->setupUi(this);
     setFocusPolicy(Qt::StrongFocus);
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);
@@ -21,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QTimer * timer=new QTimer(this);
     timer->start(10);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerUpDate()));
+
+    QPalette palette(this->palette());
+    palette.setColor(QPalette::Background, Qt::black);
+    this->setPalette(palette);
 }
 
 void MainWindow::initwidget()
@@ -52,7 +57,13 @@ MainWindow::~MainWindow()
 void MainWindow::timerUpDate(){
 
   resize(WINDOW_SIZE+rand()%2,WINDOW_SIZE+rand()%2);
-    //update();
+ //   update();
    // repaint();
   //  cout<<"!!!"<<endl;
+}
+void MainWindow::showEvent(QShowEvent *e)
+
+{
+    this->setAttribute(Qt::WA_Mapped);
+    QWidget::showEvent(e);
 }

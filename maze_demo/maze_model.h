@@ -27,6 +27,7 @@ public:
     player & get_man();
     player & get_monster();
     void moveMan(int _direction);
+    void moveMonster(int _direction);
     void init();
     block & get_block(int i,int j);
     vector<vector<block>> & get_maze();

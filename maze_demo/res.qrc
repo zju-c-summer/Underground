@@ -15,5 +15,20 @@
         <file>image/title.png</file>
         <file>image/wall.png</file>
         <file>image/wall_dark.png</file>
+        <file>image/man_down.jpg</file>
+        <file>image/man_left.jpg</file>
+        <file>image/man_right.jpg</file>
+        <file>image/man_up.jpg</file>
+        <file>image/man_down_1.png</file>
+        <file>image/man_left_1.png</file>
+        <file>image/man_right_1.png</file>
+        <file>image/man_up_1.png</file>
+        <file>image/enter.png</file>
+        <file>image/exit.png</file>
+        <file>image/enter_2.png</file>
+        <file>image/exit_2.png</file>
+        <file>image/wall_1.png</file>
+        <file>image/monster_l.png</file>
+        <file>image/monster_r.png</file>
     </qresource>
 </RCC>

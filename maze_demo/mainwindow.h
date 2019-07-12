@@ -32,6 +32,7 @@ public:
     ~MainWindow();
     void initwidget();
     void initcharacter();
+    void showEvent(QShowEvent *event);
 
 private slots:
     void timerUpDate();

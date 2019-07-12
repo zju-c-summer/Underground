@@ -2,6 +2,118 @@
 #include "prim.h"
 #include <iostream>
 using namespace std;
+void maze_model::moveMonster(int _direction){
+  /*  static int count=0;
+ //   int i,j;
+  //  i=BLOCK_SIZE/monster.get_x();
+    //j=BLOCK_SIZE/monster.get_y();
+    monster.set_direction(_direction);
+    //_direction=rand()
+    cout<<"in here"<<endl;
+   if(monster.get_direction()==0){//试着往左走
+       // i++;
+        if(maze[(int)monster.get_y()/BLOCK_SIZE][(int)monster.get_x()/BLOCK_SIZE-1].get_type()==0&&monster.get_x()-((int)monster.get_x()/BLOCK_SIZE)*BLOCK_SIZE<=monster.get_step()){
+
+            cout<<"move r"<<endl;
+        }
+        else{
+            monster.moveL();
+            cout<<"move l r"<<endl;
+        }
+    }
+    else if(monster.get_direction()==1){
+       // i++;
+        //j+=2;
+        if(maze[(int)monster.get_y()/BLOCK_SIZE][(int)monster.get_x()/BLOCK_SIZE+1].get_type()==0&&((int)monster.get_x()/BLOCK_SIZE+1)*BLOCK_SIZE-monster.get_x()-monster.get_size()<=monster.get_step()){
+          //  monster.moveL();
+            cout<<"move l"<<endl;
+        }
+        else{
+            monster.moveR();
+            cout<<"move r l"<<endl;
+        }
+    }
+    else if(monster.get_direction()==2){
+      //  j++;
+        if(maze[(int)monster.get_y()/BLOCK_SIZE-1][(int)monster.get_x()/BLOCK_SIZE].get_type()==0&&monster.get_y()-((int)monster.get_y()/BLOCK_SIZE)*BLOCK_SIZE<=monster.get_step()){
+          //  monster.moveD();
+            cout<<"move d"<<endl;
+        }
+        else{
+            monster.moveU();
+            cout<<"move d u"<<endl;
+        }
+    }
+    else{
+        if(maze[(int)monster.get_y()/BLOCK_SIZE+1][(int)monster.get_x()/BLOCK_SIZE].get_type()==0&&((int)monster.get_y()/BLOCK_SIZE+1)*BLOCK_SIZE-monster.get_y()-monster.get_size()<=monster.get_step()){
+          //  monster.moveU();
+            cout<<"move u"<<endl;
+        }
+        else{
+            monster.moveD();
+            cout<<"move u d"<<endl;
+        }
+    }*/
+ /*   if(monster.get_direction()==0) monster.moveL();
+    else if (monster.get_direction()==1) monster.moveR();
+    else if (monster.get_direction()==2) monster.moveU();
+    else if (monster.get_direction()==3) monster.moveD();*/
+    static int count=0;
+    static int dirc=0;
+    int pos_x=(monster.get_x()/BLOCK_SIZE);
+    int pos_y=monster.get_y()/BLOCK_SIZE;
+    int dirc_count=0;
+    if(pos_x-1>=0){
+        if(maze[pos_y][pos_x-1].get_type()!=0) dirc_count++;
+    }
+    if(pos_x+1<col_size){
+        if(maze[pos_y][pos_x+1].get_type()!=0) dirc_count++;
+    }
+    if(pos_y-1>=0){
+        if(maze[pos_y-1][pos_x].get_type()!=0) dirc_count++;
+    }
+    if(pos_y+1<row_size){
+        if(maze[pos_y+1][pos_x].get_type()!=0) dirc_count++;
+    }
+    if(dirc_count>2){
+        count=0;
+    }
+    if(count==0){
+        int l=0,r=0,u=0,d=0;
+
+        for(int i=pos_y+1;i<col_size;i++){
+            if(maze[i][pos_x].get_type()==0) break;
+            d++;
+        }
+        for(int i=pos_y-1;i>=0;i--){
+            if(maze[i][pos_x].get_type()==0)break;
+            u++;
+        }
+        for(int i=pos_x+1;i<row_size;i++){
+            if(maze[pos_y][i].get_type()==0)break;
+            r++;
+        }
+        for(int i=pos_x-1;i>=0;i--){
+            if(maze[pos_y][i].get_type()==0)break;
+            l++;
+        }
+        switch (rand()%4) {
+        case 0:count=l;dirc=0;break;
+        case 1:count=r;dirc=1;break;
+        case 2:count=u;dirc=2;break;
+        case 3:count=d;dirc=3;break;
+        }
+        monster.set_direction(dirc);
+    }
+    if(count){
+        switch (dirc) {
+        case 0:monster.set_x(monster.get_x()-BLOCK_SIZE);count--;break;
+        case 1:monster.set_x(monster.get_x()+BLOCK_SIZE);count--;break;
+        case 2:monster.set_y(monster.get_y()-BLOCK_SIZE);count--;break;
+        case 3:monster.set_y(monster.get_y()+BLOCK_SIZE);count--;break;
+        }
+    }
+}
 vector<vector <block>> & maze_model::get_maze(){return maze;}
 player & maze_model:: get_man() {return man;}
 player & maze_model::get_monster(){return monster;}
