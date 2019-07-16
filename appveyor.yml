@@ -28,6 +28,6 @@ build_script:
 
     if "%platform%"=="x64" call "%vcvarsall%" x64
 
-    qmake C:\projects\underground\maze_demo\first.pro
+    qmake C:\projects\underground\maze_mvvm\maze_mvvm.pro
 
     nmake
