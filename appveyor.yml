@@ -35,9 +35,9 @@ build_script:
     nmake
 after_build:
 - cmd: >-
-    if "%APPVEYOR_REPO_TAG%"=="true" windeployqt bin\maze_mvvm.exe --qmldir %QTDIR%\qml
+    if "%APPVEYOR_REPO_TAG%"=="true" windeployqt C:\projects\underground\maze_mvvm\bin\maze_mvvm.exe --qmldir %QTDIR%\qml
 artifacts:
-    path: bin
+    path: C:\projects\underground\maze_mvvm\bin
     name: $(releaseName)
 deploy:
     provider: GitHub
