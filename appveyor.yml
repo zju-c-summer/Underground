@@ -42,4 +42,3 @@ artifacts:
 deploy:
     provider: GitHub
     auth_token: $(GITHUB_OAUTH_TOKEN)
-    prerelease: false
