@@ -1,0 +1,12 @@
+#ifndef COMMON_VALUE_H
+#define COMMON_VALUE_H
+
+#define MAZE_SIZE 25
+#define BLOCK_SIZE 100
+#define PLAYER_SIZE 60
+#define WINDOW_SIZE 1000
+#define WINDOW_LENGTH 1000
+#define WINDOW_WIDTH 1000
+#define PAINT_BLOCK_NUMBER 3
+
+#endif // COMMON_VALUE_H
