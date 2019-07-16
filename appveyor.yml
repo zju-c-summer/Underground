@@ -39,6 +39,6 @@ after_build:
 artifacts:
     path: bin
     name: $(releaseName)
-deployment:
+deploy:
     provider: GitHub
     auth_token: $(GITHUB_OAUTH_TOKEN)
