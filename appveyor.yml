@@ -37,7 +37,7 @@ after_build:
 - cmd: >-
     if "%APPVEYOR_REPO_TAG%"=="true" windeployqt C:\projects\underground\maze_mvvm\bin\maze_mvvm.exe --qmldir %QTDIR%\qml
 artifacts:
-    path: C:\projects\underground\maze_mvvm\bin
+    path: .\maze_mvvm\bin
     name: $(releaseName)
 deploy:
     provider: GitHub
