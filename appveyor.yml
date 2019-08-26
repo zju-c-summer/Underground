@@ -4,11 +4,11 @@ environment:
   matrix:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
     platform: x86
-    Qt: 5.12.2
+    Qt: 5.13.0
     releaseName: Underground_qt512_vs2017_x86
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
     platform: x64
-    Qt: 5.12.2
+    Qt: 5.13.0
     releaseName: Underground_qt512_vs2017_x64
 build_script:
 - cmd: >-
